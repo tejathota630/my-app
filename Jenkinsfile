@@ -3,13 +3,12 @@ pipeline {
        tools {
                maven 'maven3'
              }
-	   stages{
+	       stages{
 		   
 	   stage('Maven Build/Package') {
 		   
 		     steps {  
-			          sh 'mvn clean package'
-					  
+			          sh 'mvn clean package'  
 		           }
 	                                }
 
@@ -31,7 +30,7 @@ pipeline {
 					   }
 					  
 		           }
-	                                }								
+	                         }								
 				 
 	   stage('Deploy-tomcat') {
 		   
@@ -45,8 +44,38 @@ pipeline {
                   // stop and start tomcat
                   sh "ssh ${tomcatBin}/shutdown.sh"
                   sh "ssh ${tomcatBin}/startup.sh"
-		           }
+                     		           }
 
-	        }
-	
-           }
+	              }
+	        
+                  }
+	       }         
+	   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
