@@ -36,14 +36,15 @@ pipeline {
 	   stage('Deploy-tomcat') {
 		   
 		     steps {  
-			        sshagent(['tomcat-dev']) {
-						//copy war file to tomcat webapps
-                       sh "scp -o  StrictHostKeyChecking =no target/*.war ec2-user@172.31.2.185:/opt/tomcat8/webapp/my-app.war"
-					   //stop and start tomcat
-					   sh"ssh ec2-user@172.31.2.185 /opt/tomcat8/bin/shudown.sh"
-					   sh"ssh ec2-user@172.31.2.185 /opt/tomcat8/bin/startup.sh"
-                                             }
-					  
+            script{
+               def userHost = "ec2-user@172.31.2.185"
+               def tomcatBin = "ec2-user@172.31.2.185 /opt/tomcat8/bin"
+	   		   sshagent(['tomcat-dev']) {
+                  // copy war file to tomcat webapps
+                  sh "scp -o StrictHostKeyChecking=no target/*.war ${userHost}:/opt/tomcat8/webapps/my-app.war"
+                  // stop and start tomcat
+                  sh "ssh ${tomcatBin}/shutdown.sh"
+                  sh "ssh ${tomcatBin}/startup.sh"
 		           }
 
 	        }
