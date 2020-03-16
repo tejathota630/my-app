@@ -51,23 +51,7 @@ pipeline {
                   }
 	       }         
 	   }
-	post {
-              success {
-                         // send success message
-						 mail bcc: '', body: '''Hi Team,
-                      The Build completed sucessfully
-                
-                      Thanks ,
-                      Devops Team''', cc: '', from: '', replyTo: '', subject: 'Build -SUCESS', to: 'teja.thotatt@gmail.com'
-                      }
-		     failure {
-                         // send failure message mail bcc: '', body: '''Hi Team,
-                      The Build failed sucessfully
-                
-                      Thanks ,
-                      Devops Team''', cc: '', from: '', replyTo: '', subject: 'Build -SUCESS', to: 'teja.thotatt@gmail.com'
-                      }
-}
+
 }
 
 
