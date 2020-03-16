@@ -57,9 +57,9 @@ pipeline {
     // jenkins job succcessfullu build
 		
 		mail bcc: '', body: '''Hi 
-               Welcome to jenkins job email alerts
+               Welcome to jenkins job build successfully 
 
-              Thanks
+               Thanks
                Teja''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Job', to: 'teja.thotatt@gmail.com'
 	
 	
