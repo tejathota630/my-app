@@ -51,16 +51,21 @@ pipeline {
                   }
 	       }         
 	   }	   
-	stage('Email Notification'){
+	
+	post {
+                success {
+    // jenkins job succcessfullu build
 		
 		mail bcc: '', body: '''Hi 
-Welcome to jenkins job email alerts
+               Welcome to jenkins job email alerts
 
-Thanks
-Teja''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Job', to: 'teja.thotatt@gmail.com'
+              Thanks
+               Teja''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipeline Job', to: 'teja.thotatt@gmail.com'
 	
 	
-	}
+	
+                        }
+              }
 		
 		
 }
