@@ -51,6 +51,16 @@ pipeline {
                   }
 	       }         
 	   }
+	    stage ('Email Notification')	{
+            
+			mail bcc: '', body: '''Hi
+              welcome to jenkins email alerts
+
+              Thanks
+
+             Teja''', cc: '', from: '', replyTo: '', subject: 'Jenkins Pipline Job Status', to: 'teja.thotatt@gmail.com'
+
+	                                    }
 
 }
 
